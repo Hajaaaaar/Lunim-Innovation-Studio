@@ -184,9 +184,7 @@ Builder.registerComponent(CTASection, {
 });
 Builder.registerComponent(Footer, {
   name: 'Main Footer',
-  // This tells builder this component is often used in a layout
-  // and shouldn't be used in the main page body by default.
-  isLayout: true, 
+  
 });
 
 Builder.registerComponent(PageHeader, {
