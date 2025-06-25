@@ -6,7 +6,6 @@ import { poppins } from '@/app/fonts';
 
 type Logo = { image: string; name: string };
 type ClientsProps = { title?: string; logos?: Logo[] };
-const titleVariant = { hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } } };
 
 export default function Clients({
   title = "Trusted by the world's most innovative companies",
@@ -25,7 +24,6 @@ export default function Clients({
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
           className={`${poppins.className} text-center text-2xl font-semibold text-gray-500 mb-12`}
-          variants={titleVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
