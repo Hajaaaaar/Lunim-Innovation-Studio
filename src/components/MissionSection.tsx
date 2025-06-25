@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { poppins } from '@/app/fonts';
 
-//  PROPS 
+// --- PROPS  ---
 type MissionSectionProps = {
   headline?: string;
   paragraph1?: string;
@@ -13,47 +13,7 @@ type MissionSectionProps = {
   imageUrl?: string;
 };
 
-//  ANIMATION VARIANTS 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.2 } },
-};
 
-const textCardVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-const imageVariants = {
-  hidden: { x: 50, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-},
-};
-
-const blobVariants = {
-    hidden: { scale: 0.7, opacity: 0 },
-    visible: {
-        scale: 1,
-        opacity: 1,
-        transition: {
-            duration: 1.5,
-            ease: "easeOut",
-        },
-    },
-};
 
 export default function MissionSection({
   headline = "Our Mission",
@@ -64,26 +24,26 @@ export default function MissionSection({
   return (
     <div className="bg-slate-50 py-24 sm:py-32 relative overflow-hidden">
       
+      
       <motion.div 
         className="absolute top-1/2 left-full w-[50rem] h-[50rem] -translate-x-1/2 -translate-y-1/2"
-        variants={blobVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial={{ scale: 0.7, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         <div className="w-full h-full bg-gradient-to-tr from-indigo-200 to-pink-200 rounded-full blur-3xl opacity-20"></div>
       </motion.div>
 
-      <motion.div 
-        className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16 items-center relative"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={containerVariants}
-      >
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16 items-center relative">
+        
+       
         <motion.div 
           className="z-10"
-          variants={textCardVariants}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="bg-white/60 backdrop-blur-lg p-8 lg:p-12 rounded-2xl shadow-xl border border-white/50">
             <h2 className={`${poppins.className} text-3xl font-bold text-gray-900`}>{headline}</h2>
@@ -94,9 +54,13 @@ export default function MissionSection({
           </div>
         </motion.div>
 
+        
         <motion.div 
-          variants={imageVariants} 
           className="lg:-ml-24"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <Image
             src={imageUrl}
@@ -106,7 +70,7 @@ export default function MissionSection({
             className="w-full h-full object-cover rounded-2xl shadow-2xl"
           />
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 }
