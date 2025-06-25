@@ -49,7 +49,7 @@ export default function CTASection({
       });
     }
     // Cleanup function to destroy the instance
-    return () => node?.vanillaTilt?.destroy();
+    return () => (node as any)?.vanillaTilt?.destroy();
   }, []);
 
   return (
