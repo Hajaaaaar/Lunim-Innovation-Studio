@@ -1,17 +1,16 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import { poppins } from '@/app/fonts';
 import { useState, MouseEvent } from 'react';
 
-// --- Icon for the hover effect ---
+
 const ArrowIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-indigo-500">
     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
   </svg>
 );
-
-
 type Step = {
   stepNumber: string;
   stepTitle: string;
@@ -21,8 +20,6 @@ type OurProcessProps = {
   title?: string;
   steps?: Step[];
 };
-const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
-const itemVariants = { hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } } };
 
 export default function OurProcess({
   title = "Our Blueprint for Success",
@@ -42,27 +39,38 @@ export default function OurProcess({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={containerVariants}
+        transition={{ staggerChildren: 0.1 }}
       >
-        <motion.div variants={itemVariants} className="text-center">
+        
+        <motion.div 
+            className="text-center"
+            variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+            }}
+        >
           <h2 className={`${poppins.className} text-3xl font-bold text-gray-900`}>
             {title}
           </h2>
         </motion.div>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div 
+          className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
           {steps.map((step, index) => (
             <motion.div 
               key={step.stepNumber} 
-              className="relative p-6 rounded-xl transition-all duration-300"
-              variants={itemVariants}
+              className="relative p-6 rounded-xl"
               onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+              }}
             >
               <div 
                 className={`absolute inset-0 bg-slate-50 rounded-xl border border-slate-200 transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
               ></div>
-
 
               <div className="relative">
                 <div className="flex items-center gap-4">
@@ -72,8 +80,7 @@ export default function OurProcess({
                 <p className="mt-4 text-base text-gray-600">{step.description}</p>
               </div>
 
-
-              <div className={`absolute top-1/2 -right-4 -translate-y-1/2 transition-opacity duration-300 ${hoveredIndex === index && index < steps.length - 1 ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`absolute top-1/2 -right-4 -translate-y-1/2 transition-opacity duration-300 hidden lg:block ${hoveredIndex === index && index < steps.length - 1 ? 'opacity-100' : 'opacity-0'}`}>
                 <ArrowIcon />
               </div>
             </motion.div>
