@@ -22,7 +22,6 @@ const icons = { X: <XIcon />, LinkedIn: <LinkedInIcon />, GitHub: <GitHubIcon />
 
 type SocialLink = { platform: keyof typeof icons; url: string; };
 type CTASectionProps = { headline?: string; subtext?: string; buttonText?: string; buttonLink?: string; email?: string; socialLinks?: SocialLink[]; };
-const sectionVariants = { hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } } };
 
 export default function CTASection({
   headline = "Let's build what's next",
@@ -60,7 +59,7 @@ export default function CTASection({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        variants={sectionVariants}
+        
       >
         <div className="bg-slate-50 rounded-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center p-8 lg:p-12">
             {/* Left Column: The Call to Action */}
