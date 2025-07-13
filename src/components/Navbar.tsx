@@ -1,10 +1,9 @@
-
+// src/components/Navbar.tsx
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { poppins } from '@/app/fonts';
-
 
 type NavLink = {
   text: string;
@@ -19,40 +18,44 @@ type NavbarProps = {
   ctaLink?: string;
 };
 
-
 export default function Navbar({
   logoImage = '/images/logo.png',
   brandName = 'Lunim',
   navLinks = [
     { text: 'Home', url: '/' },
-    { text: 'Clients', url: '/clients' },
-    { text: 'Services', url: '/services' },
-    { text: 'Our Work', url: '/our-work' },
+    { text: 'Packages', url: '/packages' },
+    { text: 'Expertise', url: '/expertise' },
     { text: 'About', url: '/about' },
+    { text: 'Contact', url: '/contact' },
   ],
-  ctaText = 'Contact Us',
-  ctaLink = '/contact',
+  ctaText = 'Get Started',
+  ctaLink = '/get-started',
 }: NavbarProps) {
   return (
-    <nav className="bg-white/80 backdrop-blur-md h-20 w-full fixed top-0 left-0 z-50 border-b border-gray-200">
+    // 1. Changed background to your dark color with a subtle bottom border
+    <nav className="bg-brand-dark h-20 w-full fixed top-0 left-0 z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
         
         <Link href="/" className="flex items-center gap-3">
           <Image src={logoImage} alt="Logo" width={44} height={44} className="h-11 w-auto" />
-          <span className={`${poppins.className} text-2xl font-semibold text-gray-800`}>{brandName}</span>
+          {/* 2. Changed brand name text to white */}
+          <span className={`${poppins.className} text-2xl font-semibold text-white`}>{brandName}</span>
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <Link key={link.url} href={link.url} className="text-gray-600 hover:text-black transition-colors duration-300 relative group">
+            // 3. Changed link colors to be light grey, turning white on hover
+            <Link key={link.url} href={link.url} className="text-gray-300 hover:text-white transition-colors duration-300 relative group">
               <span>{link.text}</span>
-              <span className="absolute bottom-[-2px] left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
+              {/* The blue underline will pop nicely against the dark background */}
+              <span className="absolute bottom-[-2px] left-0 w-full h-[2px] bg-brand-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
             </Link>
           ))}
         </div>
 
         <div className="hidden md:flex">
-          <Link href={ctaLink} className="bg-black text-white px-5 py-2.5 rounded-lg font-medium hover:bg-gray-800 transition-colors duration-300">
+          {/* The orange button provides a great contrast against the dark navbar */}
+          <Link href={ctaLink} className="bg-brand-accent text-brand-dark px-6 py-2.5 rounded-lg font-bold hover:brightness-90 transition-all duration-300">
             {ctaText}
           </Link>
         </div>
