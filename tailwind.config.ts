@@ -10,11 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-dark': '#272727',
-        'brand-primary': '#00A3FF',
-        'brand-secondary': '#00D2D2',
-        'brand-accent': '#FF9B00',
-        'brand-purple': '#A32EFF',
+        'brand-dark': '#091F0E',
+        'brand-light-dark': '#173430',
+        'brand-blue': '#00A3FF',
+        'brand-green': '#2CFF8B',
       },
       animation: {
         marquee: 'marquee 30s linear infinite',

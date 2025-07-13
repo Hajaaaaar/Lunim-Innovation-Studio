@@ -33,13 +33,13 @@ Builder.registerComponent(Navbar, {
     {
       name: 'ctaText',
       type: 'text',
-      defaultValue: 'Contact Us',
+      defaultValue: 'Get Started',
       friendlyName: 'CTA Button Text'
     },
     {
       name: 'ctaLink',
       type: 'url',
-      defaultValue: '/contact',
+      defaultValue: '/get-started',
       friendlyName: 'CTA Button Link'
     },
     {
@@ -60,10 +60,10 @@ Builder.registerComponent(Navbar, {
       ],
       defaultValue: [
         { text: 'Home', url: '/' },
-        { text: 'Clients', url: '/clients' },
-        { text: 'Services', url: '/services' },
-        { text: 'Our Work', url: '/our-work' },
+        { text: 'Packages', url: '/packages' },
+        { text: 'Expertise', url: '/expertise' },
         { text: 'About', url: '/about' },
+        { text: 'Contact', url: '/contact' },
       ]
     }
   ],
@@ -72,12 +72,12 @@ Builder.registerComponent(Navbar, {
 Builder.registerComponent(Hero, {
     name: 'Hero Section',
     inputs: [
-        { name: 'headline', type: 'text', defaultValue: 'We Build Digital Experiences That Inspire' },
-        { name: 'subheadline', type: 'longText', defaultValue: 'From concept to launch, we partner with innovative brands to create unforgettable websites and applications.' },
-        { name: 'primaryCtaText', type: 'text', defaultValue: 'Start a Project' },
-        { name: 'primaryCtaLink', type: 'url', defaultValue: '/contact' },
-        { name: 'secondaryCtaText', type: 'text', defaultValue: 'View Our Work' },
-        { name: 'secondaryCtaLink', type: 'url', defaultValue: '/our-work' },
+        { name: 'headline', type: 'text', defaultValue: 'Light the Way to Your Next Moonshot' },
+        { name: 'subheadline', type: 'longText', defaultValue: 'We specialise in short burst collaborations that harness design thinking, AI integration, and Web 3.0 to power your next giant leap in digital innovation.' },
+        { name: 'primaryCtaText', type: 'text', defaultValue: 'View Sprint Packages' },
+        { name: 'primaryCtaLink', type: 'url', defaultValue: '/packages' },
+        { name: 'secondaryCtaText', type: 'text', defaultValue: 'Our Expertise' },
+        { name: 'secondaryCtaLink', type: 'url', defaultValue: '/expertise' },
     ],
 });
 
