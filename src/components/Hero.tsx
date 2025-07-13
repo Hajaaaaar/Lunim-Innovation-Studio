@@ -24,12 +24,12 @@ type HeroProps = {
   secondaryCtaLink?: string;
 };
 
-// --- ANIMATION VARIANTS ---
-const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.2 } } };
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
+// // --- ANIMATION VARIANTS ---
+// const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.2 } } };
+// const itemVariants = {
+//   hidden: { y: 20, opacity: 0 },
+//   visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+// };
 
 export default function Hero({
   headlinePart1 = "Light the Way",
@@ -78,11 +78,17 @@ export default function Hero({
         className="max-w-4xl mx-auto px-6 text-center"
         initial="hidden"
         animate="visible"
-        variants={containerVariants}
+        variants={{
+          hidden: {},
+          visible: {}
+        }}
       >
         <motion.h1 
           className={`${poppins.className} text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg`}
-          variants={itemVariants}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+          }}
         >
           {headlinePart1}{' '}
           <span className="text-brand-blue">
@@ -92,14 +98,20 @@ export default function Hero({
 
         <motion.p 
           className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 drop-shadow-md"
-          variants={itemVariants}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+          }}
         >
           {subheadline}
         </motion.p>
 
         <motion.div 
           className="mt-10 flex justify-center items-center gap-4"
-          variants={itemVariants}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+          }}
         >
           <Link 
             href={primaryCtaLink}
