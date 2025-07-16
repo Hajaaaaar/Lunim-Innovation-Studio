@@ -2,7 +2,7 @@
 'use client';
 import { Builder } from '@builder.io/react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+// import Hero from './components/Hero';
 import Clients from './components/Clients'; 
 import Services from './components/Services';
 import OurProcess from './components/OurProcess';
@@ -69,17 +69,17 @@ Builder.registerComponent(Navbar, {
   ],
 });
 
-Builder.registerComponent(Hero, {
-    name: 'Hero Section',
-    inputs: [
-        { name: 'headline', type: 'text', defaultValue: 'Light the Way to Your Next Moonshot' },
-        { name: 'subheadline', type: 'longText', defaultValue: 'We specialise in short burst collaborations that harness design thinking, AI integration, and Web 3.0 to power your next giant leap in digital innovation.' },
-        { name: 'primaryCtaText', type: 'text', defaultValue: 'View Sprint Packages' },
-        { name: 'primaryCtaLink', type: 'url', defaultValue: '/packages' },
-        { name: 'secondaryCtaText', type: 'text', defaultValue: 'Our Expertise' },
-        { name: 'secondaryCtaLink', type: 'url', defaultValue: '/expertise' },
-    ],
-});
+// Builder.registerComponent(Hero, {
+//     name: 'Hero Section',
+//     inputs: [
+//         { name: 'headline', type: 'text', defaultValue: 'Light the Way to Your Next Moonshot' },
+//         { name: 'subheadline', type: 'longText', defaultValue: 'We specialise in short burst collaborations that harness design thinking, AI integration, and Web 3.0 to power your next giant leap in digital innovation.' },
+//         { name: 'primaryCtaText', type: 'text', defaultValue: 'View Sprint Packages' },
+//         { name: 'primaryCtaLink', type: 'url', defaultValue: '/packages' },
+//         { name: 'secondaryCtaText', type: 'text', defaultValue: 'Our Expertise' },
+//         { name: 'secondaryCtaLink', type: 'url', defaultValue: '/expertise' },
+//     ],
+// });
 
 Builder.registerComponent(Clients, {
   name: 'Client Logos',
