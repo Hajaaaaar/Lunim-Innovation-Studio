@@ -53,8 +53,7 @@ export default function Hero({
 
   return (
     <div className="relative isolate overflow-hidden h-screen min-h-[700px] flex items-center justify-center bg-brand-dark">
-      
-
+    
       <AnimatePresence>
         <motion.div
           key={currentImage}

@@ -17,29 +17,33 @@ export default function Clients({
     { image: '/images/clients/bristol-production-van.png', name: 'Bristol Production Van' },
   ],
 }: ClientsProps) {
-  const extendedLogos = [...logos, ...logos];
+  const extendedLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
-    <div className="py-7 bg-white">
+    <div className="bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
-          className={`${poppins.className} text-center text-2xl font-semibold text-gray-500 mb-12`}
-          initial="hidden"
-          whileInView="visible"
+          
+          className={`${poppins.className} text-center text-lg font-medium text-gray-400 mb-12`}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           {title}
         </motion.h2>
-        <div className="relative w-full overflow-hidden">
+        
+        
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)]">
           <div className="flex animate-marquee hover:[animation-play-state:paused]">
             {extendedLogos.map((logo, index) => (
-              <div key={index} className="flex-shrink-0 mx-8 flex justify-center items-center" style={{ minWidth: '160px' }}>
+              <div key={index} className="flex-shrink-0 mx-10 flex justify-center items-center" style={{ minWidth: '160px' }}>
                 <Image
                   src={logo.image}
                   alt={logo.name}
-                  width={158}
-                  height={48}
-                  className="opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-in-out"
+                  width={140}
+                  height={40}
+                  className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 scale-90 hover:scale-100 transition-all duration-300 ease-in-out"
                 />
               </div>
             ))}

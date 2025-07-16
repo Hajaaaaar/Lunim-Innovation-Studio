@@ -82,6 +82,62 @@ Builder.registerComponent(Hero, {
         { name: 'secondaryCtaLink', type: 'url', defaultValue: '/expertise' },
     ],
 });
+Builder.registerComponent(MissionSection, {
+  name: 'Mission Section',
+  inputs: [
+    { 
+      name: 'headline', 
+      type: 'text', 
+      defaultValue: 'Our Mission' 
+    },
+    { 
+      name: 'paragraph1', 
+      type: 'longText', 
+      defaultValue: 'At Lunim, our mission is to empower visionaries. We believe that groundbreaking ideas deserve brilliant digital execution. We are more than just a studio; we are partners dedicated to translating your ambition into tangible, impactful, and beautiful digital products.' 
+    },
+    { 
+      name: 'paragraph2', 
+      type: 'longText', 
+      defaultValue: 'We are driven by a passion for clean design, elegant code, and the pursuit of innovation. Our process is collaborative and transparent, ensuring we not only meet but exceed expectations at every stage of the journey.' 
+    },
+    { 
+      name: 'imageUrl', 
+      type: 'file', 
+      allowedFileTypes: ['png', 'jpg', 'jpeg'] 
+    },
+  ],
+});
+Builder.registerComponent(Packages, {
+  name: 'Packages Section',
+  inputs: [
+      { name: 'title', type: 'text', defaultValue: 'Pick Your Sprint, Fuel Your Progress' },
+      { name: 'subtitle', type: 'longText', defaultValue: 'Choose the right sprint tier for your project needs, from initial discovery to fully functioning proof of concept.' },
+      {
+          name: 'packages',
+          type: 'list',
+          friendlyName: 'Sprint Packages',
+          subFields: [
+              {
+                  name: 'icon',
+                  type: 'text',
+                  enum: ['discovery', 'prototype', 'poc'],
+                  defaultValue: 'discovery'
+              },
+              { name: 'title', type: 'text', defaultValue: 'Discovery Sprint' },
+              { name: 'duration', type: 'text', defaultValue: '1-2 weeks' },
+              { name: 'description', type: 'longText', defaultValue: 'Validate ideas and define project scope through research and strategic planning.' },
+              { name: 'subtext', type: 'text', defaultValue: '3 specialised packages available' },
+          ],
+          defaultValue: [
+              { icon: 'discovery', title: 'Discovery Sprint', duration: '1-2 weeks', description: 'Validate ideas and define project scope through research and strategic planning.', subtext: '3 specialised packages available' },
+              { icon: 'prototype', title: 'Prototype Sprint', duration: '2-4 weeks', description: 'Build interactive prototypes and test the experience with target users.', subtext: '5 specialised packages available' },
+              { icon: 'poc', title: 'PoC Sprint', duration: '4-8 weeks', description: 'Develop a fully functioning proof of concept tested with real users.', subtext: '2 specialised packages available' },
+          ]
+      },
+      { name: 'ctaText', type: 'text', defaultValue: 'Explore All Packages' },
+      { name: 'ctaLink', type: 'url', defaultValue: '/packages' },
+  ]
+});
 
 Builder.registerComponent(Clients, {
   name: 'Client Logos',
@@ -197,59 +253,3 @@ Builder.registerComponent(PageHeader, {
   ],
 });
 
-Builder.registerComponent(MissionSection, {
-  name: 'Mission Section',
-  inputs: [
-    { 
-      name: 'headline', 
-      type: 'text', 
-      defaultValue: 'Our Mission' 
-    },
-    { 
-      name: 'paragraph1', 
-      type: 'longText', 
-      defaultValue: 'At Lunim, our mission is to empower visionaries. We believe that groundbreaking ideas deserve brilliant digital execution. We are more than just a studio; we are partners dedicated to translating your ambition into tangible, impactful, and beautiful digital products.' 
-    },
-    { 
-      name: 'paragraph2', 
-      type: 'longText', 
-      defaultValue: 'We are driven by a passion for clean design, elegant code, and the pursuit of innovation. Our process is collaborative and transparent, ensuring we not only meet but exceed expectations at every stage of the journey.' 
-    },
-    { 
-      name: 'imageUrl', 
-      type: 'file', 
-      allowedFileTypes: ['png', 'jpg', 'jpeg'] 
-    },
-  ],
-});
-Builder.registerComponent(Packages, {
-  name: 'Packages Section',
-  inputs: [
-      { name: 'title', type: 'text', defaultValue: 'Pick Your Sprint, Fuel Your Progress' },
-      { name: 'subtitle', type: 'longText', defaultValue: 'Choose the right sprint tier for your project needs, from initial discovery to fully functioning proof of concept.' },
-      {
-          name: 'packages',
-          type: 'list',
-          friendlyName: 'Sprint Packages',
-          subFields: [
-              {
-                  name: 'icon',
-                  type: 'text',
-                  enum: ['discovery', 'prototype', 'poc'],
-                  defaultValue: 'discovery'
-              },
-              { name: 'title', type: 'text', defaultValue: 'Discovery Sprint' },
-              { name: 'duration', type: 'text', defaultValue: '1-2 weeks' },
-              { name: 'description', type: 'longText', defaultValue: 'Validate ideas and define project scope through research and strategic planning.' },
-              { name: 'subtext', type: 'text', defaultValue: '3 specialised packages available' },
-          ],
-          defaultValue: [
-              { icon: 'discovery', title: 'Discovery Sprint', duration: '1-2 weeks', description: 'Validate ideas and define project scope through research and strategic planning.', subtext: '3 specialised packages available' },
-              { icon: 'prototype', title: 'Prototype Sprint', duration: '2-4 weeks', description: 'Build interactive prototypes and test the experience with target users.', subtext: '5 specialised packages available' },
-              { icon: 'poc', title: 'PoC Sprint', duration: '4-8 weeks', description: 'Develop a fully functioning proof of concept tested with real users.', subtext: '2 specialised packages available' },
-          ]
-      },
-      { name: 'ctaText', type: 'text', defaultValue: 'Explore All Packages' },
-      { name: 'ctaLink', type: 'url', defaultValue: '/packages' },
-  ]
-});

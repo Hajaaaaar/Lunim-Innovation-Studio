@@ -75,7 +75,7 @@ export default function PackagesSection({
           {packages.map((pkg) => (
             <motion.div 
               key={pkg.title}
-              // Added a width to the cards so they know how to wrap
+              // Added a width to the cards so they wrap
               className="w-full sm:w-96 p-8 rounded-2xl bg-brand-light-dark/30 border border-white/10 hover:border-brand-blue/70 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,163,255,0.25)] flex flex-col items-center text-center"
               variants={{
                 hidden: { opacity: 0, y: 20 },
