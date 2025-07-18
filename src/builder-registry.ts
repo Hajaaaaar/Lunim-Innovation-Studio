@@ -1,6 +1,6 @@
 
 'use client';
-import { Builder } from '@builder.io/react';
+import { Builder, withChildren } from '@builder.io/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Clients from './components/Clients'; 
@@ -11,7 +11,9 @@ import Footer from './components/Footer';
 import Packages from './components/Packages';
 import PageHeader from './components/PageHeader';
 import MissionSection from './components/MissionSection';
-
+import PrototypePackages from './components/PrototypePackages';
+import MvpPackages from './components/MvpPackages';
+import DiscoveryPackages from './components/DiscoveryPackages';
 
 Builder.registerComponent(Navbar, {
   name: 'Navbar',
@@ -251,4 +253,226 @@ Builder.registerComponent(PageHeader, {
       { name: 'subtitle', type: 'text', defaultValue: 'The story behind our passion for innovation and design.' },
   ],
 });
+
+
+Builder.registerComponent(DiscoveryPackages, {
+  name: 'DiscoveryPackages',
+  inputs: [
+    {
+      name: 'title',
+      type: 'text',
+      defaultValue: 'Discovery Sprints',
+    },
+    {
+      name: 'packages',
+      type: 'list',
+      subFields: [
+        {
+          name: 'icon',
+          type: 'string',
+          enum: ['research', 'market', 'tech'],
+          defaultValue: 'research',
+        },
+        {
+          name: 'title',
+          type: 'string',
+          defaultValue: 'New Discovery Sprint',
+        },
+        {
+          name: 'duration',
+          type: 'string',
+          defaultValue: '1-2 weeks',
+        },
+        {
+          name: 'tags',
+          type: 'list',
+          subFields: [
+            { name: 'tag', type: 'string', defaultValue: 'New Tag'}
+          ],
+          defaultValue: [
+            { tag: 'Tag1' }, { tag: 'Tag2' }
+          ]
+        },
+        {
+          name: 'features',
+          type: 'longText',
+          helperText: 'Enter one feature per line.',
+          defaultValue: 'Feature 1\nFeature 2\nFeature 3',
+        },
+      ],
+      defaultValue: [
+        { 
+            icon: 'research',
+            title: 'User Research Sprint', 
+            duration: '1-2 weeks', 
+            tags: [ {tag: 'Research'}, {tag: 'UX'}, {tag: 'Strategy'} ],
+            features: 'User interviews & surveys\nPersona & empathy mapping\nCompetitive analysis\nProblem validation'
+        },
+        { 
+            icon: 'market',
+            title: 'Market Validation Sprint', 
+            duration: '1-2 weeks', 
+            tags: [ {tag: 'Business'}, {tag: 'Strategy'}, {tag: 'Data'} ],
+            features: 'Value proposition design\nLanding page testing\nMarket sizing & analysis\nGo-to-market strategy'
+        },
+        { 
+            icon: 'tech',
+            title: 'Technical Feasibility Sprint', 
+            duration: '1-2 weeks', 
+            tags: [ {tag: 'Tech'}, {tag: 'Architecture'}, {tag: 'Risk'} ],
+            features: 'Proof of concept development\nAPI & integration planning\nTech stack evaluation\nEffort & cost estimation'
+        },
+      ],
+    },
+  ],
+});
+
+
+
+Builder.registerComponent(PrototypePackages, {
+  name: 'PrototypePackages',
+  inputs: [
+    {
+      name: 'title',
+      type: 'text',
+      defaultValue: 'Prototype Sprints',
+    },
+    {
+      name: 'packages',
+      type: 'list',
+      subFields: [
+        {
+          name: 'icon',
+          type: 'string',
+          enum: ['ux', 'ai', 'web3'],
+          defaultValue: 'ux',
+        },
+        {
+          name: 'title',
+          type: 'string',
+          defaultValue: 'New Package Title',
+        },
+        {
+          name: 'duration',
+          type: 'string',
+          defaultValue: 'X weeks',
+        },
+        {
+          name: 'tags',
+          type: 'list',
+          subFields: [
+            { name: 'tag', type: 'string', defaultValue: 'New Tag' }
+          ],
+          defaultValue: [
+            { tag: 'Tag1' }, { tag: 'Tag2' }
+          ]
+        },
+        {
+          name: 'features',
+          type: 'longText',
+          helperText: 'Enter one feature per line.',
+          defaultValue: 'Feature 1\nFeature 2\nFeature 3',
+        },
+      ],
+      defaultValue: [
+        { 
+          icon: 'ux', 
+          title: 'UX Prototype Sprint', 
+          duration: '3 weeks', 
+          tags: [ {tag: 'UX'}, {tag: 'Design'}, {tag: 'Research'} ],
+          features: 'Interactive wireframe creation\nUser journey mapping\nPrototype development\nUsability testing sessions\nDesign system foundation'
+        },
+        { 
+          icon: 'ai', 
+          title: 'AI-Powered Prototype', 
+          duration: '4 weeks', 
+          tags: [ {tag: 'AI'}, {tag: 'ML'}, {tag: 'Data'} ],
+          features: 'Develop intelligent prototypes\nML model development\nAI feature integration\nData pipeline setup\nAlgorithm optimization\nPerformance testing'
+        },
+        { 
+          icon: 'web3', 
+          title: 'Web3 dApp Prototype', 
+          duration: '4 weeks', 
+          tags: [ {tag: 'Web3'}, {tag: 'Blockchain'}, {tag: 'dApp'} ],
+          features: 'Create decentralized application prototypes\nSmart contract prototyping\nBlockchain integration\nWallet connectivity\nToken functionality\nSecurity audit preparation'
+        },
+      ],
+    },
+  ],
+});
+
+
+
+Builder.registerComponent(MvpPackages, {
+  name: 'MvpPackages',
+  inputs: [
+    {
+      name: 'title',
+      type: 'text',
+      defaultValue: 'MVP Sprint Packages',
+    },
+    {
+      name: 'packages',
+      type: 'list',
+      subFields: [
+        {
+          name: 'icon',
+          type: 'string',
+          enum: ['creativeSpeech', 'aiBattery', 'web3Hexagon'],
+          defaultValue: 'creativeSpeech',
+        },
+        {
+          name: 'title',
+          type: 'string',
+          defaultValue: 'New MVP Title',
+        },
+        {
+          name: 'duration',
+          type: 'string',
+          defaultValue: 'X weeks',
+        },
+        {
+          name: 'tags',
+          type: 'list',
+          subFields: [
+            { name: 'tag', type: 'string', defaultValue: 'New Tag'}
+          ],
+          defaultValue: [
+            { tag: 'Tag1' }, { tag: 'Tag2' }
+          ]
+        },
+        {
+          name: 'features',
+          type: 'longText',
+          helperText: 'Enter one feature per line.',
+          defaultValue: 'Feature 1\nFeature 2\nFeature 3',
+        },
+      ],
+      defaultValue: [
+        { 
+            icon: 'creativeSpeech',
+            title: 'Creative MVP Launch', 
+            duration: '6 weeks', 
+            tags: [ {tag: 'Creativity'}, {tag: 'UX'}, {tag: 'Sprints'} ],
+            features: 'Full product development\nCreative asset production\nUser interface implementation\nPerformance optimization\nLaunch strategy execution'
+        },
+        { 
+            icon: 'aiBattery',
+            title: 'AI-Driven MVP', 
+            duration: '8 weeks', 
+            tags: [ {tag: 'AI'}, {tag: 'Agile'}, {tag: 'Sprints'} ],
+            features: 'Production ML models\nScalable AI infrastructure\nReal-time analytics\nUser feedback loops\nContinuous learning setup'
+        },
+        { 
+            icon: 'web3Hexagon',
+            title: 'Web3 Platform MVP', 
+            duration: '8 weeks', 
+            tags: [ {tag: 'Web3'}, {tag: 'UX'}, {tag: 'Agile'} ],
+            features: 'Full smart contract deployment\nMulti-chain compatibility\nDeFi protocol integration\nGovernance mechanisms\nCommunity features'
+        },
+      ],
+    },
+  ],
+});
+
 
